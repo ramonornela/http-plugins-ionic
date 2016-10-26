@@ -2,9 +2,9 @@
   "name": "@ramonornela/http-plugins-ionic",
   "version": "0.0.1",
   "description": "Plugins HTTP adicionais para projetos ionic",
-  "main": "es2015/index.js",
-  "module": "es2015/index.js",
-  "typings": "es2015/index.d.ts",
+  "main": "dist/es2015/index.js",
+  "module": "dist/es2015/index.js",
+  "typings": "dist/es2015/index.d.ts",
   "scripts": {
     "clean": "rimraf ./dist && rimraf ./src/module.ngfactory.ts",
     "lint": "tslint -c ./tslint.json --project ./tsconfig-es2015.json --force",
@@ -13,8 +13,13 @@
     "build:es2015": "node --max_old_space_size=8096 ./node_modules/.bin/ngc -p tsconfig-es2015.json",
     "build": "npm run clean && npm run build-cjs && npm run build:es2015 && npm run preparePackage",
     "del:ngfactory:dist": "rimraf ./dist/es5/module.ngfactory* && rimraf ./dist/es2015/module.ngfactory*",
-    "publishPackage": "npm run lint && npm run build && npm run del:ngfactory:dist && cd dist && npm publish --access public"
+    "publishPackage": "npm run lint && npm run build && npm run del:ngfactory:dist && npm publish --access public"
   },
+  "files": [
+  	"dist/",
+  	"LICENSE",
+  	"README.md"
+  ],
   "dependencies": {
     "@angular/common": "2.1.0",
     "@angular/core": "2.1.0",
@@ -67,6 +72,5 @@
   "bugs": {
     "url": "https://github.com/ramonornela/http-plugins-ionic/issues"
   },
-  "homepage": "https://github.com/ramonornela/http-plugins-ionic",
-  "readme": "README.md"
+  "homepage": "https://github.com/ramonornela/http-plugins-ionic"
 }
