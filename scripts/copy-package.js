@@ -18,5 +18,4 @@ delete packageJson.scripts;
 
 fs.renameSync(originalPath, tempPath);
 fs.writeFileSync(originalPath, JSON.stringify(packageJson, null, 2));
-fs.rmdirSync(originalPath);
 fs.renameSync(tempPath, originalPath);
