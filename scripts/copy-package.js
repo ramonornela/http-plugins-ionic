@@ -16,8 +16,7 @@ delete packageJson.devDependencies;
 delete packageJson.dependencies;
 delete packageJson.scripts;
 
-console.log(originalPath);
 fs.renameSync(originalPath, tempPath);
-fs.writeFile(originalPath, JSON.stringify(packageJson, null, 2));
+fs.writeFileSync(originalPath, JSON.stringify(packageJson, null, 2));
 fs.rmdirSync(originalPath);
 fs.renameSync(tempPath, originalPath);
