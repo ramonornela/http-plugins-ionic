@@ -13,5 +13,5 @@ import { NoConnectionPlugin } from './no-connection';
     { provide: HttpPluginsToken, useClass: NoConnectionPlugin, multi: true }
   ]
 })
-export class HttpPluginsIonic {
+export class HttpPluginsIonicModule {
 }
