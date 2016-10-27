@@ -2,18 +2,18 @@
   "name": "@ramonornela/http-plugins-ionic",
   "version": "0.0.2",
   "description": "Plugins HTTP adicionais para projetos ionic",
-  "main": "dist/es2015/index.js",
-  "module": "dist/es2015/index.js",
-  "typings": "dist/es2015/index.d.ts",
+  "main": "dist/umd/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "module": "dist/esm/index.js",
   "scripts": {
-    "clean": "rimraf ./dist && rimraf ./src/module.ngfactory.ts",
-    "lint": "tslint -c ./tslint.json --project ./tsconfig-es2015.json --force",
-    "preparePackage": "node ./scripts/copy-package",
-    "build:cjs": "node --max_old_space_size=8096 ./node_modules/.bin/ngc -p tsconfig.json",
-    "build:es2015": "node --max_old_space_size=8096 ./node_modules/.bin/ngc -p tsconfig-es2015.json",
-    "build": "npm run clean && npm run build:cjs && npm run build:es2015 && npm run preparePackage",
-    "del:ngfactory:dist": "rimraf ./dist/es5/module.ngfactory* && rimraf ./dist/es2015/module.ngfactory*",
-    "publishPackage": "npm run lint && npm run build && npm run del:ngfactory:dist && npm publish --access public"
+    "clean": "rimraf ./dist",
+    "lint": "tslint -c ./tslint.json --project ./tsconfig-esm.json --force",
+    "package:json": "node ./scripts/package",
+    "build:umd": "node --max_old_space_size=8096 ./node_modules/.bin/ngc -p tsconfig.json",
+    "build:esm": "node --max_old_space_size=8096 ./node_modules/.bin/ngc -p tsconfig-esm.json",
+    "build": "npm run clean && npm run build:umd && npm run build:esm",
+    "build:lint": "npm run lint && npm run build",
+    "publishPackage": "npm run build:lint && npm run package:json --prepare && npm publish --access public && npm run package:json --restore"
   },
   "files": [
     "dist/",
@@ -31,7 +31,7 @@
     "rxjs": "5.0.0-beta.12",
     "@ramonornela/url-resolver": "^0.0.8",
     "@ramonornela/configuration": "^0.0.3",
-    "@ramonornela/http": "^0.0.9",
+    "@ramonornela/http": "^0.0.17",
     "ionic-native": "^2.2.4",
     "ionic-angular": "^2.0.0-rc.1"
   },
@@ -46,11 +46,11 @@
     "rimraf": "^2.5.4"
   },
   "peerDependencies": {
-    "@angular/core": "^2.0.1",
-    "@angular/http": "^2.0.1",
+    "@angular/core": "^2.0.0",
+    "@angular/http": "^2.0.0",
     "ionic-native": "^2.2.4",
     "ionic-angular": "^2.0.0-rc.1",
-    "@ramonornela/http": "^0.0.9",
+    "@ramonornela/http": "^0.0.17",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.21"
   },

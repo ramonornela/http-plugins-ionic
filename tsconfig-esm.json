@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "module": "es2015",
     "target": "es5",
     "experimentalDecorators": true,
     "sourceMap": true,
     "declaration": true,
     "removeComments": true,
-    "outDir": "dist/es2015",
+    "outDir": "dist/esm",
     "moduleResolution": "node",
     "lib": [
       "es2015",
@@ -14,6 +15,15 @@
     ]
   },
   "include": [
-    "src/**/*"
-  ]
+    "src/index.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true,
+    "genDir": "dist/esm",
+    "skipTemplateCodegen": true,
+    "debug": false
+  }
 }
