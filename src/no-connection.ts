@@ -7,7 +7,7 @@ import { NoConnectionException } from './exception';
 export class NoConnectionPlugin implements PreRequestPlugin {
 
   getPriority(): number {
-    return -1;
+    return 0;
   }
 
   getName() {

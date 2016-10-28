@@ -16,7 +16,7 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin {
   constructor(private loadingController: LoadingController) {}
 
   getPriority(): number {
-    return 0;
+    return 1;
   }
 
   getName() {
