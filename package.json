@@ -1,6 +1,6 @@
 {
   "name": "@ramonornela/http-plugins-ionic",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Plugins HTTP adicionais para projetos ionic",
   "main": "dist/umd/index.js",
   "typings": "dist/esm/index.d.ts",
