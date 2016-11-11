@@ -31,7 +31,7 @@
     "rxjs": "5.0.0-beta.12",
     "@ramonornela/url-resolver": "^0.0.8",
     "@ramonornela/configuration": "^0.0.3",
-    "@ramonornela/http": "^0.0.21",
+    "@ramonornela/http": "^0.0.22",
     "ionic-native": "^2.2.4",
     "ionic-angular": "^2.0.0-rc.1"
   },
@@ -50,7 +50,7 @@
     "@angular/http": "^2.0.0",
     "ionic-native": "^2.2.4",
     "ionic-angular": "^2.0.0-rc.1",
-    "@ramonornela/http": "^0.0.21",
+    "@ramonornela/http": "^0.0.22",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.21"
   },
