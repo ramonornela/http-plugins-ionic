@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
-import { HttpModule, HttpPluginsToken } from '@ramonornela/http';
 import { LoadingIonicPlugin } from './loading-ionic';
 import { NoConnectionPlugin } from './no-connection';
 
