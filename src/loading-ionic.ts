@@ -9,6 +9,8 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin {
 
   protected allow: boolean = true;
 
+  protected allowPrevious: boolean = null;
+
   protected loadingOptions: Object = {};
 
   protected originalLoadingOptions: Object;
@@ -39,14 +41,27 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin {
     this.loading = null;
     this.loadingOptions = this.originalLoadingOptions;
     this.allow = true;
+
+    if (this.allowPrevious !== null) {
+      this.allow = this.allowPrevious;
+      this.allowPrevious = null;
+    }
   }
 
-  disableLoading(): this {
+  disableLoading(restore: boolean = false): this {
+    if (restore === true) {
+      this.allowPrevious = this.allow;
+    }
+
     this.allow = false;
     return this;
   }
 
-  enableLoading(): this {
+  enableLoading(restore: boolean = false): this {
+    if (restore === true) {
+      this.allowPrevious = this.allow;
+    }
+
     this.allow = true;
     return this;
   }

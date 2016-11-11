@@ -6,7 +6,7 @@ import { NoConnectionPlugin } from './no-connection';
 
 @NgModule({
   imports: [
-    HttpModule
+    HttpModule.initialize(true)
   ],
   providers: [
     { provide: HttpPluginsToken, useClass: LoadingIonicPlugin, deps: [ LoadingController ], multi: true },
