@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var fs = require('fs');
 var process = require('process');
 var path = require('path');
@@ -36,4 +38,4 @@ if (argvJson.original && argvJson.original.length > 2) {
   return;
 }
 
-throw 'Should be argument assign argv prepare or restore';
+module.exports = Package;
