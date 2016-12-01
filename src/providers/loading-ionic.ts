@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { LoadingController } from 'ionic-angular';
-import { PreRequestPlugin, PostRequestPlugin } from '@ramonornela/http';
+import { LoadingController, Loading } from 'ionic-angular';
+import { PreRequestPlugin, PostRequestPlugin, PostRequestErrorPlugin } from '@ramonornela/http';
 
 @Injectable()
-export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin {
+export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, PostRequestErrorPlugin {
 
-  protected loading;
+  protected loading: Loading = null;
 
   protected allow: boolean = true;
 
@@ -32,8 +32,12 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin {
     }
   }
 
-  postRequest() {
-    if (this.allow && this.loading) {
+  dismiss() {
+    if (this.loading === null) {
+      return;
+    }
+
+    if (this.allow) {
       this.loading.dismiss();
     }
 
@@ -46,6 +50,14 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin {
       this.allow = this.allowPrevious;
       this.allowPrevious = null;
     }
+  }
+
+  postRequest() {
+    this.dismiss();
+  }
+
+  postRequestError() {
+    this.dismiss();
   }
 
   disableLoading(restore: boolean = false): this {
@@ -72,7 +84,7 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin {
   }
 
   protected getLoading() {
-    if (!this.loading) {
+    if (this.loading === null) {
       this.loading = this.loadingController.create(this.loadingOptions);
     }
 
