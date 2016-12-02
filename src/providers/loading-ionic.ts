@@ -56,10 +56,6 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
   }
 
   dismiss() {
-    if (this.allow === false) {
-      return;
-    }
-
     if (this.loading === null) {
       return;
     }
@@ -78,13 +74,12 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
   }
 
   postRequest() {
-    this.dismiss();
+    if (this.allow) {
+      this.dismiss();
+    }
   }
 
   postRequestError() {
-    if (this.skippedCount) {
-      this.allow = true; // force dismiss loading
-    }
     this.dismiss();
   }
 
