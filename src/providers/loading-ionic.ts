@@ -11,6 +11,10 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
 
   protected allowPrevious: boolean = null;
 
+  protected skippedCount: number = null;
+
+  protected countLoading: number = 0;
+
   protected loadingOptions: Object = {};
 
   protected originalLoadingOptions: Object;
@@ -27,19 +31,40 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
 
   preRequest() {
     this.originalLoadingOptions = Object.assign({}, this.loadingOptions);
+
+    if (this.skippedCount) {
+      let allowPrevious = this.allow;
+      this.allow = true;
+
+      if (this.countLoading !== 0) {
+        if (this.countLoading <= this.skippedCount) {
+          this.allow = false;
+        } else {
+          this.allow = this.allowPrevious;
+          this.countLoading = 0;
+        }
+      } else {
+        this.allowPrevious = allowPrevious;
+      }
+
+      this.countLoading++;
+    }
+
     if (this.allow) {
       this.getLoading().present();
     }
   }
 
   dismiss() {
+    if (this.allow === false) {
+      return;
+    }
+
     if (this.loading === null) {
       return;
     }
 
-    if (this.allow) {
-      this.loading.dismiss();
-    }
+    this.loading.dismiss();
 
     // reset values
     this.loading = null;
@@ -57,7 +82,15 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
   }
 
   postRequestError() {
+    if (this.skippedCount) {
+      this.allow = true; // force dismiss loading
+    }
     this.dismiss();
+  }
+
+  skip(count: number): this {
+    this.skippedCount = count;
+    return this;
   }
 
   disableLoading(restore: boolean = false): this {
