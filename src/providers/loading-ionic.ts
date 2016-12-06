@@ -9,8 +9,6 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
 
   protected allow: boolean = true;
 
-  protected allowPrevious: boolean = null;
-
   protected skippedCount: number = null;
 
   protected countLoading: number = 0;
@@ -18,6 +16,8 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
   protected loadingOptions: Object = {};
 
   protected originalLoadingOptions: Object;
+
+  protected presentLoading: boolean = false;
 
   constructor(private loadingController: LoadingController) {}
 
@@ -33,21 +33,19 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
     this.originalLoadingOptions = Object.assign({}, this.loadingOptions);
 
     if (this.skippedCount) {
-      let allowPrevious = this.allow;
-      this.allow = true;
-
-      if (this.countLoading !== 0) {
-        if (this.countLoading <= this.skippedCount) {
-          this.allow = false;
-        } else {
-          this.allow = this.allowPrevious;
-          this.countLoading = 0;
-        }
-      } else {
-        this.allowPrevious = allowPrevious;
+      if (this.allow && !this.presentLoading) {
+        this.presentLoading = true;
+        this.getLoading().present();
       }
 
-      this.countLoading++;
+      if (++this.countLoading > this.skippedCount) {
+        this.skippedCount = null;
+        this.countLoading = 0;
+        this.presentLoading = false;
+        this.allow = true;
+      }
+
+      return;
     }
 
     if (this.allow) {
@@ -56,50 +54,44 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
   }
 
   dismiss() {
-    if (this.loading === null) {
+    if (this.skippedCount) {
       return;
     }
 
-    this.loading.dismiss();
+    if (this.allow) {
+      this.loading.dismissAll();
+    }
 
     // reset values
     this.loading = null;
     this.loadingOptions = this.originalLoadingOptions;
     this.allow = true;
-
-    if (this.allowPrevious !== null) {
-      this.allow = this.allowPrevious;
-      this.allowPrevious = null;
-    }
   }
 
   postRequest() {
-    if (this.allow) {
+    if (this.loading !== null) {
       this.dismiss();
     }
   }
 
   postRequestError() {
-    this.dismiss();
+    if (this.loading !== null) {
+      this.dismiss();
+    }
   }
 
-  skip(count: number): this {
-    this.skippedCount = count;
-    return this;
-  }
-
-  disableLoading(restore: boolean = false): this {
-    if (restore === true) {
-      this.allowPrevious = this.allow;
+  disableLoading(skip?: boolean | number): this {
+    if (skip) {
+      this.skippedCount = skip === true ? 1 : skip;
     }
 
     this.allow = false;
     return this;
   }
 
-  enableLoading(restore: boolean = false): this {
-    if (restore === true) {
-      this.allowPrevious = this.allow;
+  enableLoading(skip?: boolean | number): this {
+    if (skip) {
+      this.skippedCount = skip === true ? 1 : skip;
     }
 
     this.allow = true;
