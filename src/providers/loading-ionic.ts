@@ -102,6 +102,11 @@ export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, 
     return this;
   }
 
+  setAllow(allow: boolean): this {
+    this.allow = allow;
+    return this;
+  }
+
   setLoadingOptions(loading: Object): this {
     this.loadingOptions = loading;
     return this;
