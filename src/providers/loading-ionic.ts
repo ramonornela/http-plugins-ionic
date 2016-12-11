@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { LoadingController, Loading } from 'ionic-angular';
-import { PreRequestPlugin, PostRequestPlugin, PostRequestErrorPlugin } from '@ramonornela/http';
+import { PreRequestPlugin, PostRequestPlugin, PostRequestErrorPlugin, PluginBase } from '@ramonornela/http';
 
 @Injectable()
-export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, PostRequestErrorPlugin {
+export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, PostRequestPlugin, PostRequestErrorPlugin {
 
   protected loading: Loading = null;
 
@@ -19,7 +19,9 @@ export class LoadingIonicPlugin implements PreRequestPlugin, PostRequestPlugin, 
 
   protected presentLoading: boolean = false;
 
-  constructor(private loadingController: LoadingController) {}
+  constructor(private loadingController: LoadingController) {
+    super();
+  }
 
   getPriority(): number {
     return 1;
