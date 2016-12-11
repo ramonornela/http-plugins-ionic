@@ -56,10 +56,6 @@ export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, 
   }
 
   dismiss() {
-    if (this.skippedCount) {
-      return;
-    }
-
     if (this.allow) {
       this.loading.dismissAll();
     }
@@ -73,7 +69,7 @@ export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, 
   }
 
   postRequest() {
-    if (this.loading !== null) {
+    if (this.loading !== null && this.skippedCount === null) {
       this.dismiss();
     }
   }
