@@ -15,8 +15,6 @@ export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, 
 
   protected loadingOptions: Object = {};
 
-  protected originalLoadingOptions: Object;
-
   protected presentLoading: boolean = false;
 
   constructor(private loadingController: LoadingController) {
@@ -32,8 +30,6 @@ export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, 
   }
 
   preRequest() {
-    this.originalLoadingOptions = Object.assign({}, this.loadingOptions);
-
     if (this.skippedCount) {
       if (this.allow && !this.presentLoading) {
         this.presentLoading = true;
@@ -60,24 +56,23 @@ export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, 
       this.loading.dismissAll();
     }
 
-    // reset values
     this.loading = null;
-    this.loadingOptions = this.originalLoadingOptions;
-    this.allow = true;
-
-    this.restoreOptions();
   }
 
   postRequest() {
     if (this.loading !== null && this.skippedCount === null) {
       this.dismiss();
     }
+
+    this.restoreOptions();
   }
 
   postRequestError() {
     if (this.loading !== null) {
       this.dismiss();
     }
+
+    this.restoreOptions();
   }
 
   disableLoading(skip?: boolean | number): this {
