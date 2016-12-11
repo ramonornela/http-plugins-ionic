@@ -68,6 +68,8 @@ export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, 
     this.loading = null;
     this.loadingOptions = this.originalLoadingOptions;
     this.allow = true;
+
+    this.restoreOptions();
   }
 
   postRequest() {
