@@ -15,7 +15,7 @@ export class NoConnectionPlugin implements PreRequestPlugin {
   }
 
   preRequest() {
-    if (Network.connection === 'none') {
+    if (Network.type === 'none') {
       throw new NoConnectionException('Not Connection');
     }
   }
