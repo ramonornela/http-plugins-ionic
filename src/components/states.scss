@@ -1,0 +1,25 @@
+loading {
+  text-align: center;
+
+  ion-spinner {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+empty {
+  text-align: center;
+}
+
+error {
+  text-align: center;
+
+  .msg-exception {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    display: block;
+  }
+}
