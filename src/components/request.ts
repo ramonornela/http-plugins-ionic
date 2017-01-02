@@ -75,7 +75,7 @@ export class Request {
 
   private dismissLoading() {
     if (this.loading) {
-      this.loading.dismiss();  
+      this.loading.dismiss();
     }
   }
 }

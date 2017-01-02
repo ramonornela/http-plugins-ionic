@@ -1,4 +1,4 @@
-import { Component, Directive, Input, Optional } from '@angular/core';
+import { Component, Input, Optional } from '@angular/core';
 import { ViewController } from 'ionic-angular';
 import { Http } from '@ramonornela/http';
 
@@ -90,7 +90,7 @@ export class StateError {
 
   constructor(private http: Http) {}
 
-  @Input() 
+  @Input()
   set messageException(message: string) {
     this.msgException = message;
   }

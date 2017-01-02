@@ -9,4 +9,4 @@ export const COMPONENTS = [
   StateLoading,
   StateEmpty,
   StateError
-]
+];
