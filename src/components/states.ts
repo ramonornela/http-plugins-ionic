@@ -1,6 +1,6 @@
 import { Component, Input, Optional } from '@angular/core';
 import { ViewController } from 'ionic-angular';
-import { Http } from '@ramonornela/http';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'loading',
@@ -66,7 +66,7 @@ export class StateEmpty {
   selector: 'error',
   template: `
   <div *ngIf="enabled">
-    <span class="msg-exception">{{msgException}}</span>
+    <span class="msg-exception">{{messageException}}</span>
     <button ion-button (click)="retryRequest()">
       <span>
         <ng-content></ng-content>
@@ -78,34 +78,22 @@ export class StateEmpty {
 export class StateError {
   enabled: boolean = false;
 
-  private id: string;
-
-  private msgException;
-
   @Input() messageRetry: string = 'Tentar novamente';
 
   @Input() messageCallback: Function;
 
   @Input() error: any;
 
-  constructor(private http: Http) {}
+  @Input() messageException: string;
 
-  @Input()
-  set messageException(message: string) {
-    this.msgException = message;
-  }
-
-  @Input()
-  set idRetry(id: string) {
-    this.id = id;
-  }
+  retry = new Subject<StateError>();
 
   retryRequest() {
-    this.http.retryRequest(this.id);
+    this.retry.next(this);
   }
 
   present() {
-    if (!this.msgException) {
+    if (!this.messageException) {
       if (!this.error) {
         throw new Error('Error is required!');
       }
@@ -114,7 +102,7 @@ export class StateError {
         let messageError = this.messageCallback;
         throw new Error(`${messageError} is not function`);
       }
-      this.msgException = this.messageCallback.call(null, this.error);
+      this.messageException = this.messageCallback.call(null, this.error);
     }
 
     this.enabled = true;

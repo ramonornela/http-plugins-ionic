@@ -33,11 +33,17 @@ export class Request {
     };
     this.requestOptions = Object.assign(
       {},
-      { pluginsOptions },
+      { pluginsOptions, retry: true },
       this.options
     );
 
     this.request();
+
+    if (this.error) {
+      this.error.retry.subscribe(() => {
+        this.request();
+      });
+    }
   }
 
   request() {
@@ -59,10 +65,6 @@ export class Request {
       this.dismissLoading();
 
       if (this.error) {
-
-        if (!this.error.idRetry) {
-          this.error.idRetry = this.url;
-        }
 
         if (!this.error.error) {
           this.error.error = error;
