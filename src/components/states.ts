@@ -1,4 +1,4 @@
-import { Component, Input, Optional } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import jp from '@ramonornela/jsonpath';
