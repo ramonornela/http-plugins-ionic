@@ -56,10 +56,16 @@ export class Request {
 
       this.dismissLoading();
 
-      this.loaded.emit(result);
-
       if (this.noRecords) {
-        this.noRecords.present();
+        this.noRecords.response = result;
+        let isPresent = this.noRecords.present();
+
+        if (!isPresent) {
+          this.loaded.emit(result);
+        }
+
+      } else {
+        this.loaded.emit(result);
       }
     }, (error) => {
       this.dismissLoading();

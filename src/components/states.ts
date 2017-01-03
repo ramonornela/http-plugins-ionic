@@ -1,6 +1,7 @@
 import { Component, Input, Optional } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
+import jp from '@ramonornela/jsonpath';
 
 @Component({
   selector: 'loading',
@@ -42,23 +43,57 @@ export class StateLoading {
 export class StateEmpty {
   enabled: boolean = false;
 
-  @Input() variableBind: any;
+  @Input() map: any;
 
-  constructor(
-    @Optional() private ctrl: ViewController
-  ) {}
+  @Input() response: any;
 
-  present() {
-    this.enabled = false;
-    let dataBind = this.ctrl._cmp.instance[this.variableBind];
-
-    if (this.ctrl && this.ctrl._cmp && this.variableBind && !dataBind) {
-      this.enabled = true;
+  present(): boolean {
+    let enabled = this.isSimpleResult(this.response);
+    if (enabled) {
+      this.enabled = enabled;
+      return true;
     }
+
+    if (!(this.response instanceof Response)) {
+      throw new Error('Data type response invalid!');
+    }
+
+    let json = this.response.json();
+
+    if (!json) {
+      throw new Error('Json is required');
+    }
+
+    if (this.map) {
+      let data = jp.query(json, this.map);
+
+      if (data.length === 0) {
+        this.enabled = true;
+        return true;
+      }
+
+      return false;
+    }
+
+    enabled = this.isSimpleResult(json);
+    if (enabled) {
+      this.enabled = enabled;
+      return true;
+    }
+
+    return false;
   }
 
   dismiss() {
     this.enabled = false;
+  }
+
+  private isSimpleResult(data: any) {
+    if ((Array.isArray(data) && data.length === 0) || (typeof data === 'object' && Object.keys(data).length === 0)) {
+      return true;
+    }
+
+    return false;
   }
 }
 
