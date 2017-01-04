@@ -102,7 +102,7 @@ export class StateEmpty {
   template: `
   <div *ngIf="enabled">
     <span class="msg-exception">{{messageException}}</span>
-    <button ion-button (click)="retryRequest()">
+    <button [color]="color" [mode]="mode" ion-button (click)="retryRequest()">
       <span>
         <ng-content></ng-content>
         {{messageRetry}}
@@ -120,6 +120,10 @@ export class StateError {
   @Input() error: any;
 
   @Input() messageException: string;
+
+  @Input() mode: string;
+
+  @Input() color: string;
 
   retry = new Subject<StateError>();
 
