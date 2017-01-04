@@ -1,3 +1,16 @@
+<a name="0.0.13"></a>
+## [0.0.13](https://github.com/ramonornela/http-plugins-ionic/compare/v0.0.12...v0.0.13) (2017-01-04)
+
+
+### Features
+
+* **component:** add components and directive to request with states of the api ([9b67594](https://github.com/ramonornela/http-plugins-ionic/commit/9b67594))
+* **components:** fix retry request state error ([1022ca8](https://github.com/ramonornela/http-plugins-ionic/commit/1022ca8))
+* **components:** implements color and mode ([884a5a2](https://github.com/ramonornela/http-plugins-ionic/commit/884a5a2))
+* **components:** refactor state empty support jsonpath ([2efc850](https://github.com/ramonornela/http-plugins-ionic/commit/2efc850))
+
+
+
 <a name="0.0.12"></a>
 ## [0.0.12](https://github.com/ramonornela/http-plugins-ionic/compare/v0.0.10...v0.0.12) (2016-12-12)
 
