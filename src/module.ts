@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { IonicModule, LoadingController } from 'ionic-angular';
 import { HttpPluginsToken } from '@ramonornela/http';
-import { LoadingIonicPlugin, NoConnectionPlugin } from './providers';
+import { IonicModule, LoadingController } from 'ionic-angular';
 import { COMPONENTS } from './components';
+import { LoadingIonicPlugin, NoConnectionPlugin } from './providers';
 
 @NgModule({
   imports: [ IonicModule.forRoot(null) ],

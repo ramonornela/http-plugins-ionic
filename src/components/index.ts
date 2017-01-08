@@ -1,5 +1,5 @@
 import { Request } from './request';
-import { StateLoading, StateEmpty, StateError } from './states';
+import { StateEmpty, StateError, StateLoading } from './states';
 
 export * from './request';
 export * from './states';

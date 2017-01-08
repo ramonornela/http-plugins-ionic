@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Response } from '@angular/http';
-import { Subject } from 'rxjs/Subject';
 import jp from '@ramonornela/jsonpath';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'loading',

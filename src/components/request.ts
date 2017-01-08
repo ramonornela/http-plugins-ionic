@@ -1,6 +1,6 @@
-import { Directive, ContentChild, EventEmitter, Input, Output } from '@angular/core';
+import { ContentChild, Directive, EventEmitter, Input, Output } from '@angular/core';
 import { Http } from '@ramonornela/http';
-import { StateLoading, StateEmpty, StateError } from './states';
+import { StateEmpty, StateError, StateLoading } from './states';
 
 @Directive({
   selector: '[request]'

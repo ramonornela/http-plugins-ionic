@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { LoadingController, Loading } from 'ionic-angular';
-import { PreRequestPlugin, PostRequestPlugin, PostRequestErrorPlugin, PluginBase } from '@ramonornela/http';
+import { PluginBase, PostRequestErrorPlugin, PostRequestPlugin, PreRequestPlugin } from '@ramonornela/http';
+import { Loading, LoadingController } from 'ionic-angular';
 
 @Injectable()
 export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, PostRequestPlugin, PostRequestErrorPlugin {
