@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PreRequestPlugin } from '@ramonornela/http';
+import { PreRequestPlugin } from '@mbamobi/http';
 import { Network } from 'ionic-native';
 import { NoConnectionException } from './exception';
 

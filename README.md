@@ -1,6 +1,6 @@
 # HttpPluginsIonicModule
 
-This extends of [http](https://github.com/ramonornela/http)
+This extends of [http](https://github.com/mbamobi/http)
 
 ## Using HttpPluginsIonicModule in an Ionic 2 app
 
@@ -10,10 +10,10 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 // Import http module
-import { HttpModule, DefaultPlugins } from '@ramonornela/http';
+import { HttpModule, DefaultPlugins } from '@mbamobi/http';
 
 // Import http plugins ionic
-import { HttpPluginsIonicModule } from '@ramonornela/http-plugins-ionic';
+import { HttpPluginsIonicModule } from '@mbamobi/http-plugins-ionic';
 
 @NgModule({
   declarations: [
@@ -34,4 +34,4 @@ export class AppModule {}
 
 Contributing
 
-See [CONTRIBUTING.md](https://github.com/ramonornela/http/blob/master/.github/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/mbamobi/http/blob/master/.github/CONTRIBUTING.md)

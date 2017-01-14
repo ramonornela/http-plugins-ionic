@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PluginBase, PostRequestErrorPlugin, PostRequestPlugin, PreRequestPlugin } from '@ramonornela/http';
+import { PluginBase, PostRequestErrorPlugin, PostRequestPlugin, PreRequestPlugin } from '@mbamobi/http';
 import { Loading, LoadingController } from 'ionic-angular';
 
 @Injectable()

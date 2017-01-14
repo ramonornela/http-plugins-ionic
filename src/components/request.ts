@@ -1,5 +1,5 @@
 import { ContentChild, Directive, EventEmitter, Input, Output } from '@angular/core';
-import { Http } from '@ramonornela/http';
+import { Http } from '@mbamobi/http';
 import { StateEmpty, StateError, StateLoading } from './states';
 
 @Directive({
