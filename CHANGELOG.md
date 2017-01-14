@@ -1,3 +1,8 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/mbamobi/http-plugins-ionic/compare/v0.0.13...v1.0.0) (2017-01-14)
+
+
+
 <a name="0.0.13"></a>
 ## [0.0.13](https://github.com/ramonornela/http-plugins-ionic/compare/v0.0.12...v0.0.13) (2017-01-04)
 
