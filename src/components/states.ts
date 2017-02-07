@@ -33,6 +33,22 @@ export class StateLoading {
 }
 
 @Component({
+  selector: 'content',
+  template: `<ng-content *ngIf="enabled"></ng-content>`
+})
+export class StateContent {
+  enabled: boolean = true;
+
+  present() {
+    this.enabled = true;
+  }
+
+  dismiss() {
+    this.enabled = false;
+  }
+}
+
+@Component({
   selector: 'empty',
   template: `
   <div *ngIf="enabled">
