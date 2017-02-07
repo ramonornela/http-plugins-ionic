@@ -1,6 +1,6 @@
 import { ContentChild, Directive, EventEmitter, Input, Output } from '@angular/core';
 import { Http } from '@mbamobi/http';
-import { StateEmpty, StateError, StateLoading, StateContent } from './states';
+import { StateContent, StateEmpty, StateError, StateLoading } from './states';
 
 @Directive({
   selector: '[request]'
