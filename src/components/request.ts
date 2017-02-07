@@ -1,6 +1,6 @@
 import { ContentChild, Directive, EventEmitter, Input, Output } from '@angular/core';
 import { Http } from '@mbamobi/http';
-import { StateEmpty, StateError, StateLoading } from './states';
+import { StateEmpty, StateError, StateLoading, StateContent } from './states';
 
 @Directive({
   selector: '[request]'
@@ -18,6 +18,8 @@ export class Request {
   @ContentChild(StateEmpty) noRecords: any;
 
   @ContentChild(StateError) error: any;
+
+  @ContentChild(StateContent) content: any;
 
   constructor(
     private http: Http
@@ -47,13 +49,20 @@ export class Request {
   }
 
   request() {
+    if (this.loading) {
+      this.loading.present();
+    }
+
+    this.dismissError();
+    this.dismissNoRecords();
+    this.dismissContent();
+
     this.http.request(
       this.url,
       this.params,
       this.requestOptions,
       this.options
     ).subscribe((result: any) => {
-
       this.dismissLoading();
 
       if (this.noRecords) {
@@ -62,10 +71,11 @@ export class Request {
 
         if (!isPresent) {
           this.loaded.emit(result);
+          this.presentContent();
         }
-
       } else {
         this.loaded.emit(result);
+        this.presentContent();
       }
     }, (error) => {
       this.dismissLoading();
@@ -84,6 +94,29 @@ export class Request {
   private dismissLoading() {
     if (this.loading) {
       this.loading.dismiss();
+    }
+  }
+
+  private dismissError() {
+    if (this.error) {
+      this.error.dismiss();
+    }
+  }
+
+  private dismissNoRecords() {
+    if (this.noRecords) {
+      this.noRecords.dismiss();
+    }
+  }
+
+  private dismissContent() {
+    if (this.content) {
+      this.content.dismiss();
+    }
+  }
+  private presentContent() {
+    if (this.content) {
+      this.content.present();
     }
   }
 }
