@@ -53,7 +53,7 @@ export class LoadingIonicPlugin extends PluginBase implements PreRequestPlugin, 
 
   dismiss() {
     if (this.loading) {
-      this.loading.dismissAll();
+      this.loading.dismiss();
     }
 
     this.loading = null;
