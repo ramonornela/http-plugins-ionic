@@ -114,6 +114,7 @@ export class Request {
       this.content.dismiss();
     }
   }
+
   private presentContent() {
     if (this.content) {
       this.content.present();
