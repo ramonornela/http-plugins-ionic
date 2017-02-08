@@ -49,13 +49,13 @@ export class Request {
   }
 
   request() {
-    if (this.loading) {
-      this.loading.present();
-    }
-
     this.dismissError();
     this.dismissNoRecords();
     this.dismissContent();
+
+    if (this.loading) {
+      this.loading.present();
+    }
 
     this.http.request(
       this.url,
