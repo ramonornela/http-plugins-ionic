@@ -10,6 +10,7 @@ export class Request {
   @Input() params: Object;
   @Input() requestOptions: any;
   @Input() options: any;
+  @Input() requestOnInit: boolean = true;
 
   @Output() loaded = new EventEmitter();
 
@@ -39,7 +40,9 @@ export class Request {
       this.options
     );
 
-    this.request();
+    if (this.requestOnInit) {
+      this.request();
+    }
 
     if (this.error) {
       this.error.retry.subscribe(() => {
