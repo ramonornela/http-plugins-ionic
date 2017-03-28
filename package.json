@@ -37,7 +37,8 @@
     "@angular/http": "^2.0.0",
     "@mbamobi/http": "^1.0.0",
     "ionic-angular": "^2.0.0-rc.1",
-    "ionic-native": "^2.2.12",
+    "@ionic-native/core": "3.1.0",
+    "@ionic-native/network": "^3.3.1",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.21"
   },
