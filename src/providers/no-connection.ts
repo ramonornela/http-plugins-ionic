@@ -1,12 +1,11 @@
-import { Network } from '@ionic-native/network';
 import { Injectable } from '@angular/core';
 import { PreRequestPlugin } from '@mbamobi/http';
-import { NoConnectionException } from './exception';
+import { NoConnectionException 
+} from './exception';
+import { Network } from 'ionic-native';
 
 @Injectable()
 export class NoConnectionPlugin implements PreRequestPlugin {
-  constructor(private network: Network) {}
-
   getPriority(): number {
     return 0;
   }
@@ -16,7 +15,7 @@ export class NoConnectionPlugin implements PreRequestPlugin {
   }
 
   preRequest() {
-    if (this.network.type === 'none') {
+    if (Network.type === 'none') {
       throw new NoConnectionException('Not Connection');
     }
   }
