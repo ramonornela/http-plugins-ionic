@@ -10,6 +10,7 @@ export class Request {
   @Input() params: Object;
   @Input() requestOptions: any;
   @Input() options: any;
+  @Input() requestOnInit: boolean = true;
 
   @Output() loaded = new EventEmitter();
 
@@ -39,7 +40,9 @@ export class Request {
       this.options
     );
 
-    this.request();
+    if (this.requestOnInit) {
+      this.request();
+    }
 
     if (this.error) {
       this.error.retry.subscribe(() => {
@@ -49,13 +52,13 @@ export class Request {
   }
 
   request() {
-    if (this.loading) {
-      this.loading.present();
-    }
-
     this.dismissError();
     this.dismissNoRecords();
     this.dismissContent();
+
+    if (this.loading) {
+      this.loading.present();
+    }
 
     this.http.request(
       this.url,
@@ -114,6 +117,7 @@ export class Request {
       this.content.dismiss();
     }
   }
+
   private presentContent() {
     if (this.content) {
       this.content.present();

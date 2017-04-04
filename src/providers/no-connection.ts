@@ -5,7 +5,6 @@ import { NoConnectionException } from './exception';
 
 @Injectable()
 export class NoConnectionPlugin implements PreRequestPlugin {
-
   getPriority(): number {
     return 0;
   }

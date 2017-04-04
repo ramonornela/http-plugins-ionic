@@ -34,7 +34,11 @@ export class StateLoading {
 
 @Component({
   selector: 'content',
-  template: `<ng-content *ngIf="enabled"></ng-content>`
+  template: `
+  <div *ngIf="enabled">
+    <ng-content></ng-content>
+  </div>
+  `
 })
 export class StateContent {
   enabled: boolean = true;
