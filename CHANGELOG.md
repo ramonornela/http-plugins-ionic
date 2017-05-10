@@ -1,3 +1,13 @@
+<a name="3.0.1"></a>
+## [3.0.1](https://github.com/mbamobi/http-plugins-ionic/compare/v3.0.0...v3.0.1) (2017-05-10)
+
+
+### Bug Fixes
+
+* **module:** import provider Network [@ionic](https://github.com/ionic)-native 3.x ([1fa3292](https://github.com/mbamobi/http-plugins-ionic/commit/1fa3292))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/mbamobi/http-plugins-ionic/compare/v2.0.0...v3.0.0) (2017-04-07)
 

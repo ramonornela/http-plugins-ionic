@@ -1,6 +1,6 @@
 {
   "name": "@mbamobi/http-plugins-ionic",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Plugins HTTP additionals to projects ionic",
   "main": "dist/umd/index.js",
   "typings": "dist/esm/index.d.ts",
