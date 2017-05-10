@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { HttpPluginsToken } from '@mbamobi/http';
 import { Network } from '@ionic-native/network';
+import { HttpPluginsToken } from '@mbamobi/http';
 import { IonicModule, LoadingController } from 'ionic-angular';
 import { COMPONENTS } from './components';
 import { LoadingIonicPlugin, NoConnectionPlugin } from './providers';
