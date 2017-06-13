@@ -1,6 +1,6 @@
 import { ContentChild, Directive, EventEmitter, Input, Output } from '@angular/core';
-import { Http } from '@ramonornela/http';
-import { StateEmpty, StateError, StateLoading } from './states';
+import { Http } from '@mbamobi/http';
+import { StateContent, StateEmpty, StateError, StateLoading } from './states';
 
 @Directive({
   selector: '[request]'
@@ -10,6 +10,7 @@ export class Request {
   @Input() params: Object;
   @Input() requestOptions: any;
   @Input() options: any;
+  @Input() requestOnInit: boolean = true;
 
   @Output() loaded = new EventEmitter();
 
@@ -18,6 +19,8 @@ export class Request {
   @ContentChild(StateEmpty) noRecords: any;
 
   @ContentChild(StateError) error: any;
+
+  @ContentChild(StateContent) content: any;
 
   constructor(
     private http: Http
@@ -37,7 +40,9 @@ export class Request {
       this.options
     );
 
-    this.request();
+    if (this.requestOnInit) {
+      this.request();
+    }
 
     if (this.error) {
       this.error.retry.subscribe(() => {
@@ -47,13 +52,20 @@ export class Request {
   }
 
   request() {
+    this.dismissError();
+    this.dismissNoRecords();
+    this.dismissContent();
+
+    if (this.loading) {
+      this.loading.present();
+    }
+
     this.http.request(
       this.url,
       this.params,
       this.requestOptions,
       this.options
     ).subscribe((result: any) => {
-
       this.dismissLoading();
 
       if (this.noRecords) {
@@ -62,10 +74,11 @@ export class Request {
 
         if (!isPresent) {
           this.loaded.emit(result);
+          this.presentContent();
         }
-
       } else {
         this.loaded.emit(result);
+        this.presentContent();
       }
     }, (error) => {
       this.dismissLoading();
@@ -84,6 +97,30 @@ export class Request {
   private dismissLoading() {
     if (this.loading) {
       this.loading.dismiss();
+    }
+  }
+
+  private dismissError() {
+    if (this.error) {
+      this.error.dismiss();
+    }
+  }
+
+  private dismissNoRecords() {
+    if (this.noRecords) {
+      this.noRecords.dismiss();
+    }
+  }
+
+  private dismissContent() {
+    if (this.content) {
+      this.content.dismiss();
+    }
+  }
+
+  private presentContent() {
+    if (this.content) {
+      this.content.present();
     }
   }
 }

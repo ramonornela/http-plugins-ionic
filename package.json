@@ -1,6 +1,6 @@
 {
-  "name": "@ramonornela/http-plugins-ionic",
-  "version": "0.0.13",
+  "name": "@mbamobi/http-plugins-ionic",
+  "version": "3.0.1",
   "description": "Plugins HTTP additionals to projects ionic",
   "main": "dist/umd/index.js",
   "typings": "dist/esm/index.d.ts",
@@ -33,21 +33,22 @@
     "CHANGELOG.md"
   ],
   "devDependencies": {
-    "@angular/common": "2.2.1",
-    "@angular/compiler": "2.2.1",
-    "@angular/compiler-cli": "2.2.1",
-    "@angular/core": "2.2.1",
-    "@angular/forms": "2.2.1",
-    "@angular/http": "2.2.1",
-    "@angular/platform-browser": "2.2.1",
-    "@angular/platform-browser-dynamic": "2.2.1",
-    "@angular/platform-server": "2.2.1",
-    "@ramonornela/configuration": "~0.0.3",
-    "@ramonornela/http": "nightly",
+    "@angular/common": "4.0.0",
+    "@angular/compiler": "4.0.0",
+    "@angular/compiler-cli": "4.0.0",
+    "@angular/core": "4.0.0",
+    "@angular/forms": "4.0.0",
+    "@angular/http": "4.0.0",
+    "@angular/platform-browser": "4.0.0",
+    "@angular/platform-browser-dynamic": "4.0.0",
+    "@angular/platform-server": "4.0.0",
+    "@ionic-native/network": "^3.4.4",
+    "@mbamobi/configuration": "^3.0.0",
+    "@mbamobi/http": "^3.0.0",
+    "@mbamobi/url-resolver": "^3.0.0",
     "@ramonornela/jsonpath": "0.2.10",
-    "@ramonornela/url-resolver": "~0.0.9",
     "@types/jasmine": "2.2.33",
-    "codelyzer": "2.0.0-beta.3",
+    "codelyzer": "2.0.0-beta.4",
     "commitizen": "^2.8.6",
     "conventional-changelog-cli": "^1.2.0",
     "cpx": "1.5.0",
@@ -55,31 +56,29 @@
     "fluid-publish": "1.1.0",
     "github": "0.2.4",
     "husky": "^0.11.9",
-    "ionic-angular": "^2.0.0-rc.3",
-    "ionic-native": "^2.2.12",
+    "ionic-angular": "^2.3.0",
     "jasmine": "2.5.2",
     "nyc": "10.0.0",
     "rimraf": "^2.5.4",
-    "rxjs": "5.0.0-beta.12",
+    "rxjs": "5.1.1",
     "tslint": "4.3.1",
     "tslint-eslint-rules": "3.2.3",
     "tslint-ionic-rules": "0.0.8",
-    "typedoc": "^0.5.1",
-    "typescript": "2.0.9",
-    "zone.js": "^0.6.21"
+    "typescript": "~2.2.1",
+    "zone.js": "^0.8.4"
   },
   "peerDependencies": {
-    "@angular/core": "^2.0.0",
-    "@angular/http": "^2.0.0",
-    "@ramonornela/http": "^0.0.33",
-    "ionic-angular": "^2.0.0-rc.1",
-    "ionic-native": "^2.2.12",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.21"
+    "@angular/core": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@ionic-native/network": "^3.4.4",
+    "@mbamobi/http": "^3.0.0",
+    "ionic-angular": "^3.0.0",
+    "rxjs": "5.1.1",
+    "zone.js": "^0.8.4"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ramonornela/http-plugins-ionic.git"
+    "url": "git+https://github.com/mbamobi/http-plugins-ionic.git"
   },
   "keywords": [
     "ionic",
@@ -93,7 +92,10 @@
   "author": "Ramon Ornelas <ramon.ornela@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ramonornela/http-plugins-ionic/issues"
+    "url": "https://github.com/mbamobi/http-plugins-ionic/issues"
   },
-  "homepage": "https://github.com/ramonornela/http-plugins-ionic"
+  "homepage": "https://github.com/mbamobi/http-plugins-ionic",
+  "dependencies": {
+    "@ramonornela/jsonpath": "0.2.10"
+  }
 }

@@ -1,3 +1,64 @@
+<a name="3.0.1"></a>
+## [3.0.1](https://github.com/mbamobi/http-plugins-ionic/compare/v3.0.0...v3.0.1) (2017-05-10)
+
+
+### Bug Fixes
+
+* **module:** import provider Network [@ionic](https://github.com/ionic)-native 3.x ([1fa3292](https://github.com/mbamobi/http-plugins-ionic/commit/1fa3292))
+
+
+
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/mbamobi/http-plugins-ionic/compare/v2.0.0...v3.0.0) (2017-04-07)
+
+
+
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/mbamobi/http-plugins-ionic/compare/v2.0.0...v3.0.0) (2017-04-07)
+
+
+
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/mbamobi/http-plugins-ionic/compare/v1.1.1...v2.0.0) (2017-04-05)
+
+
+
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/mbamobi/http-plugins-ionic/compare/v1.1.1...v2.0.0) (2017-04-05)
+
+
+
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/mbamobi/http-plugins-ionic/compare/v1.1.0...v1.1.1) (2017-04-04)
+
+
+
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/mbamobi/http-plugins-ionic/compare/v1.1.0...v1.1.1) (2017-04-04)
+
+
+
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/mbamobi/http-plugins-ionic/compare/v1.0.0...v1.1.0) (2017-04-04)
+
+
+### Bug Fixes
+
+* **loadingIonic:** replace dismissAll() by dismiss() ([3b7fee1](https://github.com/mbamobi/http-plugins-ionic/commit/3b7fee1))
+
+
+### Features
+
+* **request:** request content component and viewchildren visibility control ([45f49b0](https://github.com/mbamobi/http-plugins-ionic/commit/45f49b0))
+* **states:** request content component ([5100547](https://github.com/mbamobi/http-plugins-ionic/commit/5100547))
+
+
+
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/mbamobi/http-plugins-ionic/compare/v0.0.13...v1.0.0) (2017-01-14)
+
+
+
 <a name="0.0.13"></a>
 ## [0.0.13](https://github.com/ramonornela/http-plugins-ionic/compare/v0.0.12...v0.0.13) (2017-01-04)
 
