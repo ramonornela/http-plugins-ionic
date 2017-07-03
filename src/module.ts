@@ -6,7 +6,7 @@ import { COMPONENTS } from './components';
 import { LoadingIonicPlugin, NoConnectionPlugin } from './providers';
 
 @NgModule({
-  imports: [ IonicModule.forRoot(null) ],
+  imports: [ IonicModule ],
   exports: [ COMPONENTS ],
   declarations: [ COMPONENTS ],
   providers: [

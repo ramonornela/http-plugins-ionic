@@ -51,6 +51,10 @@
   dependencies:
     tsickle "^0.21.0"
 
+"@ionic-native/core@^3.4.4":
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-3.13.0.tgz#1f14d658b03588be839ce4c4552445f4ec5eca7a"
+
 "@ionic-native/network@^3.4.4":
   version "3.13.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/network/-/network-3.13.0.tgz#517c60422065c0fca0226f445cef5e6342d53d33"
@@ -1850,13 +1854,9 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
-lodash@4.17.2:
+lodash@4.17.2, lodash@^4.0.0, lodash@^4.1.0, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
-
-lodash@^4.0.0, lodash@^4.1.0, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 longest@^1.0.1:
   version "1.0.1"
