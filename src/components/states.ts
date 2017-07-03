@@ -57,8 +57,7 @@ export class StateContent {
   template: `
   <div *ngIf="enabled">
     <ng-content></ng-content>
-  </div>  
-  `
+  </div>`
 })
 export class StateEmpty {
   enabled: boolean = false;
